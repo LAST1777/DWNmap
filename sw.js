@@ -1,5 +1,5 @@
 const CACHE_PREFIX = 'dwnmap-app-'
-const CACHE_NAME = CACHE_PREFIX + 'v2'
+const CACHE_NAME = CACHE_PREFIX + 'mvk3j6ik'
 const ROOT = new URL('./', self.registration.scope)
 const INDEX_URL = new URL('index.html', ROOT).href
 
@@ -7,6 +7,7 @@ self.addEventListener('install', event => {
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE_NAME)
     const response = await fetch(INDEX_URL, { cache: 'reload' })
+    if (!response.ok) throw new Error('Application shell could not be downloaded')
     await cache.put(INDEX_URL, response.clone())
     const html = await response.text()
     const assets = new Set([new URL('manifest.webmanifest', ROOT).href, new URL('icons/compass.svg', ROOT).href])
@@ -15,7 +16,9 @@ self.addEventListener('install', event => {
       if (url.origin === ROOT.origin) assets.add(url.href)
     }
     await Promise.all([...assets].map(async url => {
-      try { const asset = await fetch(url); if (asset.ok) await cache.put(url, asset) } catch { /* asset fetched again at runtime */ }
+      const asset = await fetch(url, { cache: 'reload' })
+      if (!asset.ok) throw new Error('Application asset could not be downloaded: ' + url)
+      await cache.put(url, asset)
     }))
     await self.skipWaiting()
   })())
