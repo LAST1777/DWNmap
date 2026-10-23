@@ -14,7 +14,7 @@ Ce projet est un outil personnel : il n’a pas été conçu à comme un produit
 
 - Importer et consulter des plans aux formats **JPG, PNG, TIFF et PDF**.
 - Parcourir les plans avec le zoom et le déplacement, y compris sur les grands documents.
-- Ajouter des marqueurs avec un type, un nom et une description : puits, salles, escaliers, cavages, chatières, eau, informations, véhicules et dangers.
+- Ajouter des marqueurs avec un type, un nom et une description : puits, salles, escaliers, cavages, chatières, informations, véhicules et dangers.
 - Rechercher et parcourir les marqueurs d’un plan par catégorie.
 - Ajuster la taille des marqueurs plan par plan.
 - Personnaliser le réticule et garder l’écran allumé si le navigateur le permet.
