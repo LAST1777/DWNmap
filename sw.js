@@ -1,5 +1,5 @@
 const CACHE_PREFIX = 'dwnmap-app-'
-const CACHE_NAME = CACHE_PREFIX + 'mvkryntt'
+const CACHE_NAME = CACHE_PREFIX + 'mvks68w2'
 const ROOT = new URL('./', self.registration.scope)
 const INDEX_URL = new URL('index.html', ROOT).href
 
